@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: api
+    container_name: api
+    working_dir: /var/www
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - .:/var/www
+      - ./setup/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - laravel
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  webserver:
+    image: nginx
+    container_name: nginxapi
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - .:/var/www
+      - ./setup/:/etc/nginx/conf.d/
+    ports:
+      - "1990:80"
+    networks:
+      - laravel
+
+  db:
+    image: mysql:5.7.39
+    container_name: dbapi
+    restart: always
+    tty: true
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "33066:3306"
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_USER: apiuser
+      MYSQL_PASSWORD: apipassword
+      MYSQL_ROOT_PASSWORD: secret
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
