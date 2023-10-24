@@ -62,3 +62,21 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## ADD EXTRA HOST SENDIRI
+
+Tambahkan Extra Host Sendiri Di Linux jika ingin menggunakan hostname "host.docker.internal" dengan cara
+
+Masuk ke sudo /etc && sudo nano hosts
+
+Tambahkan Script ini 
+127.0.0.1 host.docker.internal
+
+Bisa juga diganti IP Bebas,
+
+## JIKA PAKAI WINDOWS & DOCKER DESKTOP
+ADD HOST SENDIRI jika tidak di Generate oleh Docker Desktop disini
+windows => System32 => Drivers => etc => hosts
+
+Tambahkan Script ini
+127.0.0.1 host.docker.internal

@@ -1,8 +1,8 @@
 FROM php:8.0-fpm
 
-COPY composer.* /var/www/
+COPY composer.* /var/www/html/
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
 zip \
@@ -14,12 +14,17 @@ libpng-dev \
 libjpeg62-turbo-dev \
 libwebp-dev \
 git \
-curl
+curl \
+postgresql \ 
+postgresql-client \
+libpq-dev \
+sqlite3 \
+pgsql
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install zip
 
