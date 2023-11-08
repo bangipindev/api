@@ -67,3 +67,9 @@ buka browser dan ketik berikut
 ## AKSES DB 
 Buka TOOLS DB anda postgre atau MySQL
 sesuaikan dengan Service yang kamu pilih
+
+
+## JIKA DOCKER TIDAK BISA DI AKSES
+Jika perintah docker kamu tidak berjalan , mungkin kamu perlu menambahkan ini
+
+<pre>sudo ln -s /usr/bin/docker /usr/local/bin/docker </pre>
