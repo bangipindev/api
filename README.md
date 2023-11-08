@@ -9,7 +9,7 @@ Paste kan isi dari ENV.EXAMPLE ke dalam file .ENV yang baru saja kamu buat
 Silakan sesuaikan sendiri anda akan menggunakan Postgre atau Mysql
 
 ## GENERATE KEY
-PHP artisan key:generate
+<pre>PHP artisan key:generate</pre>
 
 
 ======================================================================================================================
@@ -34,22 +34,36 @@ Tambahkan -d jika tidak ingin menampilkan console debugnya / detach
 
 Tambahkan Extra Host Sendiri Di Linux jika ingin menggunakan hostname "host.docker.internal" dengan cara
 
-Masuk ke sudo /etc && sudo nano hosts
+Masuk ke 
+<pre>sudo /etc && sudo nano hosts</pre>
 
 Tambahkan Script ini 
-127.0.0.1 host.docker.internal
 
-Bisa juga diganti IP Bebas,
+<pre>127.0.0.1 host.docker.internal</pre>
 
 ## JIKA PAKAI WINDOWS & DOCKER DESKTOP
 ADD HOST SENDIRI jika tidak di Generate oleh Docker Desktop disini
-windows => System32 => Drivers => etc => hosts
+
+<pre>windows => System32 => Drivers => etc => hosts </pre>
 
 Tambahkan Script ini
-127.0.0.1 host.docker.internal (paling aman)
+
+<pre>127.0.0.1 host.docker.internal</pre>
+(paling aman)
 
 Jika menggunakan IP Addres dari Wifi silakan tambahkan script sendiri seperti diatas
 
 ## JIKA TIDAK BISA MENGGUNAKAN HOSTNAME DARI IP ADDRESS 
 Pastikan IP Address dari kamu sudah sama dengan yang ada di Host. Biasanya jika anda menggunakan Wifi di tempat lain selain saat pertama
 kali kamu install docker di Windows maka Host.docker.internal nya akan tercatat IP Address saat menginstall.
+
+
+## JALANKAN APLIKASI LARAVEL
+
+buka browser dan ketik berikut
+
+<pre> localhost:1990 </pre>
+
+## AKSES DB 
+Buka TOOLS DB anda postgre atau MySQL
+sesuaikan dengan Service yang kamu pilih

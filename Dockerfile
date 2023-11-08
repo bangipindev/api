@@ -20,7 +20,6 @@ zlib1g-dev \
 postgresql \ 
 postgresql-client \
 libpq-dev \
-pgsql \
 vim 
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
