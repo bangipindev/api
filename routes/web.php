@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes(['reset' => false]);
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/phpmyinfo', function () { phpinfo(); })->name('phpmyinfo');
+Route::get('/phpmyinfo', function () { phpinfo(); })->name('phpmyinfo');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
