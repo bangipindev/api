@@ -29,7 +29,7 @@ services:
     networks:
       - laravel
 
-  # WITH MYSQL
+  # # WITH MYSQL
   # db:
   #   image: mysql:5.7.39
   #   container_name: dbapi
@@ -37,13 +37,14 @@ services:
   #   tty: true
   #   volumes:
   #     - dbdata:/var/lib/mysql
+  #     - ./setup/my.cnf:/etc/my.cnf
   #   ports:
   #     - "33066:3306"
   #   environment:
   #     MYSQL_DATABASE: api
   #     MYSQL_USER: apiuser
   #     MYSQL_PASSWORD: apipassword
-  #     MYSQL_ROOT_PASSWORD: secret
+  #     MYSQL_ROOT_PASSWORD: apipassword
   #   networks:
   #     - laravel
 
@@ -58,9 +59,9 @@ services:
     ports:
       - "54322:5432"
     environment:
-      - POSTGRES_DB=api
-      - POSTGRES_USER=apiuser
-      - POSTGRES_PASSWORD=apipassword
+      POSTGRES_DB: api
+      POSTGRES_USER: apiuser
+      POSTGRES_PASSWORD: apipassword
     networks:
       - laravel
 
@@ -68,6 +69,12 @@ networks:
   laravel:
     driver: bridge
 
+# JIKA MENGGUNAKAN MYSQL AKTIFKAN INI
+# volumes:
+#   dbdata:
+#     driver: local
+
+# JIKA MENGGUNAKAN POSTGRES AKTIFKAN INI
 volumes:
   pgdata:
     driver: local
