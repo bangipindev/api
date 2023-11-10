@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes(['reset' => false]);
+Auth::routes(['reset' => true,'register' => true]);
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/phpmyinfo', function () { phpinfo(); })->name('phpmyinfo');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
