@@ -1,0 +1,20 @@
+{
+    "workbench.colorTheme": "SynthWave '84",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": false,
+    "workbench.iconTheme": "vscode-icons",
+    "git.autofetch": true,
+    "editor.fontVariations": false,
+    "editor.suggest.showColors": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "html.format.unformatted": "",
+    "window.zoomLevel": 0
+}
